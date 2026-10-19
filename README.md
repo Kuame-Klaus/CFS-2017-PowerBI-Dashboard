@@ -1,6 +1,6 @@
-# US Commodity Flow Survey 2017: Power BI Dashboard
+# US Commodity Flow Survey 2012 and 2017: Power BI Dashboard
 
-An 8 page Power BI dashboard built on the US Census Bureau Commodity Flow Survey (CFS) public use file, covering 5,983,071 shipment records.
+An 8 page Power BI dashboard built on the US Census Bureau Commodity Flow Survey (CFS) public use file, covering 10,526,184 shipment records: 4,547,661 from 2012 and 5,978,523 from 2017.
 
 **Author:** Eric Asiedu-Akrofi
 
@@ -44,7 +44,11 @@ The full Power BI project (PBIP with semantic model, report and data) is in this
 ![Quality Control](screenshots/still_p8.png)
 
 ## Source
-US Census Bureau, Commodity Flow Survey 2017 public use file. Note: the 2012 data in this file is a small sample, so the comparison page shows data coverage, not growth.
+Official US Census Bureau Commodity Flow Survey public use microdata files:
+- 2012 CFS Public Use File: https://www.census.gov/data/datasets/2012/econ/cfs/2012-pums-files.html
+- 2017 CFS Public Use File: https://www.census.gov/data/datasets/2017/econ/cfs/historical-datasets.html
+
+Both years are loaded in full. A SURVEY_YEAR column (2012 or 2017) was added to every row; all other columns are as published. Weighted totals: 2012 $13.85 trillion and 11.30 billion tons; 2017 $14.52 trillion and 12.47 billion tons.
 
 ## Opening the project
 1. Download or clone this repository.
