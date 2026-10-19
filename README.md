@@ -45,7 +45,7 @@ The full Power BI project (PBIP with semantic model, report and data) is in this
 
 ## Source
 Official US Census Bureau Commodity Flow Survey public use microdata files:
-- 2012 CFS Public Use File: https://www.census.gov/data/datasets/2012/econ/cfs/2012-pums-files.html
+- 2012 CFS Public Use File: https://www.census.gov/data/datasets/2012/econ/cfs/historical-datasets.html
 - 2017 CFS Public Use File: https://www.census.gov/data/datasets/2017/econ/cfs/historical-datasets.html
 
 Both years are loaded in full. A SURVEY_YEAR column (2012 or 2017) was added to every row; all other columns are as published. Weighted totals: 2012 $13.85 trillion and 11.30 billion tons; 2017 $14.52 trillion and 12.47 billion tons.
