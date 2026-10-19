@@ -33,9 +33,9 @@ The full Power BI project (PBIP with semantic model, report and data) is in this
 
 ![Shipment value rose from $13.85T in 2012 to $14.52T in 2017; tonnage from 11.30bn to 12.47bn tons](screenshots/p1_value_tonnage_2012_vs_2017_closeup.png)
 
-**For hire truck carries 47.5% of shipment value across 2012 and 2017**
+**For hire truck carries 47.6% of shipment value with a mode label across 2012 and 2017**
 
-![For hire truck carries 47.5% of shipment value across 2012 and 2017](screenshots/p2_mode_share_donuts_closeup.png)
+![For hire truck carries 47.6% of shipment value with a mode label across 2012 and 2017](screenshots/p2_mode_share_donuts_closeup.png)
 
 **Mode mix by survey year: for hire truck value splits 48.3% (2012) and 51.7% (2017)**
 
