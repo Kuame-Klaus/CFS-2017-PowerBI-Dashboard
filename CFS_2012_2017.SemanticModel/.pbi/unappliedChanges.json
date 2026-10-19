@@ -7,7 +7,7 @@
       "lineageTag": "fb050d2b-bd6a-4228-8785-3bfbc8e9e60f",
       "navigationStepName": "Navigation",
       "text": [
-        "\"C:\\Users\\WY343EH\\OneDrive - EY\\Desktop\\CFS_2012_2017_PowerBI\\data\\\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+        "\"C:\\CFS\\data\\\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
       ],
       "loadAsTableDisabled": true,
       "resultType": "Text",

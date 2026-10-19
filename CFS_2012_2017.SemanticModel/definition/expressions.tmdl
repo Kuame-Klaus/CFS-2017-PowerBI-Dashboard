@@ -1,4 +1,4 @@
-expression pDataFolder = "C:\Users\WY343EH\OneDrive - EY\Desktop\CFS_2012_2017_PowerBI\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+expression pDataFolder = "C:\CFS\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 	lineageTag: fb050d2b-bd6a-4228-8785-3bfbc8e9e60f
 
 	annotation PBI_NavigationStepName = Navigation

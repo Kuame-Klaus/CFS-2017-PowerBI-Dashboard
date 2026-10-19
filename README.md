@@ -128,4 +128,5 @@ Both years are loaded in full. A SURVEY_YEAR column (2012 or 2017) was added to 
    - Windows PowerShell, from the `data` folder:
      `$f = Get-ChildItem FactShipments_parts\*.csv | Sort-Object Name; Get-Content $f[0] | Set-Content FactShipments.csv; $f | Select-Object -Skip 1 | ForEach-Object { Get-Content $_ | Select-Object -Skip 1 | Add-Content FactShipments.csv }`
    - Mac or Linux: `cd data && (head -1 FactShipments_parts/FactShipments_part01.csv; for f in FactShipments_parts/*.csv; do tail -n +2 "$f"; done) > FactShipments.csv`
-3. Open `CFS_2012_2017.pbip` in Power BI Desktop and click Refresh.
+3. The model reads its data from `C:\CFS\data\` by default. Either copy the `data` folder there (so the rebuilt file is `C:\CFS\data\FactShipments.csv`), or open Transform data, Manage parameters and set **pDataFolder** to your own `data` folder path, keeping the trailing backslash.
+4. Open `CFS_2012_2017.pbip` in Power BI Desktop and click Refresh.
