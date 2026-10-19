@@ -1,5 +1,7 @@
 # US Commodity Flow Survey 2012 and 2017: Power BI Dashboard
 
+![US Freight in Motion: dashboard preview](screenshots/preview.gif)
+
 An 8 page Power BI dashboard built on the US Census Bureau Commodity Flow Survey (CFS) public use file, covering 10,526,184 shipment records: 4,547,661 from 2012 and 5,978,523 from 2017.
 
 **Author:** Eric Asiedu-Akrofi
@@ -17,7 +19,77 @@ The full Power BI project (PBIP with semantic model, report and data) is in this
 7. Detailed Records
 8. Quality Control
 
-## Screenshots
+## Highlights
+
+**Title card: US Freight in Motion, Commodity Flow Survey 2012 and 2017**
+
+![Title card: US Freight in Motion, Commodity Flow Survey 2012 and 2017](screenshots/intro_title_card.png)
+
+**Headline KPIs across both surveys: $28.37T shipment value, 23.77bn tons, 26.28bn estimated shipments**
+
+![Headline KPIs across both surveys: $28.37T shipment value, 23.77bn tons, 26.28bn estimated shipments](screenshots/p1_kpi_cards_closeup.png)
+
+**Shipment value rose from $13.85T in 2012 to $14.52T in 2017; tonnage from 11.30bn to 12.47bn tons**
+
+![Shipment value rose from $13.85T in 2012 to $14.52T in 2017; tonnage from 11.30bn to 12.47bn tons](screenshots/p1_value_tonnage_2012_vs_2017_closeup.png)
+
+**For hire truck carries 47.5% of shipment value across 2012 and 2017**
+
+![For hire truck carries 47.5% of shipment value across 2012 and 2017](screenshots/p2_mode_share_donuts_closeup.png)
+
+**Mode mix by survey year: for hire truck value splits 48.3% (2012) and 51.7% (2017)**
+
+![Mode mix by survey year: for hire truck value splits 48.3% (2012) and 51.7% (2017)](screenshots/p2_mode_mix_by_year_closeup.png)
+
+**Mixed freight is the top commodity at $2.82T across both surveys**
+
+![Mixed freight is the top commodity at $2.82T across both surveys](screenshots/p3_top_commodities_closeup.png)
+
+**Petroleum merchant wholesalers fell from 9.5% of value in 2012 to 5.9% in 2017**
+
+![Petroleum merchant wholesalers fell from 9.5% of value in 2012 to 5.9% in 2017](screenshots/p3_industry_heatmap_closeup.png)
+
+**Largest state flow: Texas to Texas at $2.58T, then California to California at $1.98T**
+
+![Largest state flow: Texas to Texas at $2.58T, then California to California at $1.98T](screenshots/p4_state_heatmap_closeup.png)
+
+**2012 to 2017: value +4.80% ($665.14bn), tonnage +10.35%, ton miles +4.97%**
+
+![2012 to 2017: value +4.80% ($665.14bn), tonnage +10.35%, ton miles +4.97%](screenshots/p5_comparison_kpis_closeup.png)
+
+**By mode: truck and rail +71.9%, parcel +25.4%, rail down 48.9%**
+
+![By mode: truck and rail +71.9%, parcel +25.4%, rail down 48.9%](screenshots/p5_mode_change_charts_closeup.png)
+
+**Exports are 7.8% of value ($2.20T); hazmat 14.2%; temperature controlled 12.5%**
+
+![Exports are 7.8% of value ($2.20T); hazmat 14.2%; temperature controlled 12.5%](screenshots/p6_export_hazmat_temp_kpis_closeup.png)
+
+**Shipment level detail: largest group is 2012 Texas gasoline, jet fuel and ethanol by for hire truck, $182.30bn**
+
+![Shipment level detail: largest group is 2012 Texas gasoline, jet fuel and ethanol by for hire truck, $182.30bn](screenshots/p7_records_table_closeup.png)
+
+**12 validation checks computed from the loaded data: 10,526,184 rows, zero null weight factors**
+
+![12 validation checks computed from the loaded data: 10,526,184 rows, zero null weight factors](screenshots/p8_qc_checks_closeup.png)
+
+**Motion: KPI cards counting up as the page builds**
+
+![Motion: KPI cards counting up as the page builds](screenshots/anim_p1_cards_building.png)
+
+**Motion: mode donuts sweeping in**
+
+![Motion: mode donuts sweeping in](screenshots/anim_p2_donuts_sweeping.png)
+
+**Motion: spotlight callout on the 2012 to 2017 comparison**
+
+![Motion: spotlight callout on the 2012 to 2017 comparison](screenshots/anim_p5_spotlight_callout.png)
+
+**Outro: Built in Power BI**
+
+![Outro: Built in Power BI](screenshots/outro_card.png)
+
+## Full page screenshots
 
 ### Operations Overview
 ![Operations Overview](screenshots/still_p1.png)
