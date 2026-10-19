@@ -1,0 +1,339 @@
+table FactShipments
+	lineageTag: 582b6810-45d7-4364-89c9-27b1bab8bbee
+
+	/// Weighted estimate of shipments (SUM of EST_SHIPMENTS / WGT_FACTOR expansion).
+	measure 'Estimated Shipments' = SUM(FactShipments[EST_SHIPMENTS])
+		formatString: #,##0
+		lineageTag: e7136df0-1c9e-4c3b-af70-776ccb314783
+
+	measure 'Shipment Value' = SUM(FactShipments[WEIGHTED_VALUE])
+		formatString: $#,##0
+		lineageTag: 96becb0b-f984-437d-8467-2023e853d9f9
+
+	measure 'Total Tonnage' = SUM(FactShipments[WEIGHTED_TONS])
+		formatString: #,##0.00
+		lineageTag: cfcd11aa-08be-4e4e-895e-8cc22456269a
+
+	measure 'Ton Miles' = SUM(FactShipments[WEIGHTED_TON_MILES])
+		formatString: #,##0
+		lineageTag: fb378d9b-61d1-4b72-bc84-f60d47e0481c
+
+	measure 'Weighted Average Routed Miles' = DIVIDE(SUM(FactShipments[WEIGHTED_ROUTED_MILES]), [Estimated Shipments])
+		formatString: #,##0.0
+		lineageTag: e2cca723-52fb-4be2-a4eb-5798832ac428
+
+	measure 'Value per Ton' = DIVIDE([Shipment Value], [Total Tonnage])
+		formatString: $#,##0.00
+		lineageTag: b28e2dc8-402b-4b7b-9f6f-4173474ba9f1
+
+	/// Count of survey records (microdata rows) loaded — NOT estimated shipments. Label separately from weighted measures.
+	measure 'Total Records' = COUNTROWS(FactShipments)
+		formatString: #,##0
+		lineageTag: 242b45e2-abf4-4719-b9bd-35803e7ae38b
+
+	measure 'Industry Value Share' = DIVIDE([Shipment Value], CALCULATE([Shipment Value], REMOVEFILTERS(DimIndustry)))
+		formatString: 0.0%
+		lineageTag: 17a00083-d5e0-4c4c-b6f6-a87203090682
+
+	measure 'Origin State Value Share' = DIVIDE([Shipment Value], CALCULATE([Shipment Value], REMOVEFILTERS(DimOrigin)))
+		formatString: 0.0%
+		lineageTag: 8e8abce9-03cf-4203-bccb-6ac30b9e49ab
+
+	measure 'Temp-Control Share' = DIVIDE([Temperature Controlled Value], [Shipment Value])
+		formatString: 0.0%
+		lineageTag: aaf1672a-d15c-4370-bbd5-426e0e23cca3
+
+	measure 'Hazmat Share' = DIVIDE([Hazmat Value], [Shipment Value])
+		formatString: 0.0%
+		lineageTag: 8d89a01e-7feb-44f6-b628-81cf075ec48d
+
+	measure 'Export Value' = CALCULATE([Shipment Value], FactShipments[EXPORT_YN] = "Y")
+		formatString: $#,##0
+		lineageTag: 63cf84ea-a6b2-4da8-9357-93cee9affec1
+
+	measure 'Export Share' = DIVIDE([Export Value], [Shipment Value])
+		formatString: 0.0%
+		lineageTag: 2341af81-52a1-4937-9db8-04a121fc9450
+
+	measure 'Hazmat Value' = CALCULATE([Shipment Value], FactShipments[HAZMAT] <> "N")
+		formatString: $#,##0
+		lineageTag: 5bbceac7-ca23-46e5-adae-fe053542318f
+
+	measure 'Temperature Controlled Value' = CALCULATE([Shipment Value], FactShipments[TEMP_CNTL_YN] = "Y")
+		formatString: $#,##0
+		lineageTag: 48764c1f-a3f2-4c50-9461-6ab6f595067c
+
+	measure 'Intrastate Value' = CALCULATE([Shipment Value], FactShipments[FLOW_TYPE] = "Intrastate")
+		formatString: $#,##0
+		lineageTag: 6ea883ee-af00-46b3-8e40-50ecf80b6c25
+
+	measure 'Interstate Value' = CALCULATE([Shipment Value], FactShipments[FLOW_TYPE] = "Interstate")
+		formatString: $#,##0
+		lineageTag: 67165958-e376-41b1-a77b-2efae99d7140
+
+	measure 'Value 2012' = CALCULATE([Shipment Value], FactShipments[SURVEY_YEAR] = 2012)
+		formatString: $#,##0
+		lineageTag: 8a1d9e93-2d74-4fe5-b8ec-8e2dad6d94f9
+
+	measure 'Value 2017' = CALCULATE([Shipment Value], FactShipments[SURVEY_YEAR] = 2017)
+		formatString: $#,##0
+		lineageTag: f5bcee86-8538-4a15-b198-c96f7546d285
+
+	measure 'Value Change' = [Value 2017] - [Value 2012]
+		formatString: $#,##0
+		lineageTag: dcb9440d-56c2-449c-bdbd-554263d488be
+
+	measure 'Value Change %' = IF(ISBLANK([Value 2012]) || ISBLANK([Value 2017]), BLANK(), DIVIDE([Value Change], [Value 2012]))
+		formatString: 0.00%
+		lineageTag: 88a1e0d3-56a9-4260-903d-b3354392b5dc
+
+	measure 'Tonnage 2012' = CALCULATE([Total Tonnage], FactShipments[SURVEY_YEAR] = 2012)
+		formatString: #,##0.00
+		lineageTag: bb9309c3-feac-4b15-9eba-3fa7f4570d71
+
+	measure 'Tonnage 2017' = CALCULATE([Total Tonnage], FactShipments[SURVEY_YEAR] = 2017)
+		formatString: #,##0.00
+		lineageTag: 296c109b-60ed-4e63-b07d-22cfdf116536
+
+	measure 'Tonnage Change %' = IF(ISBLANK([Tonnage 2012]) || ISBLANK([Tonnage 2017]), BLANK(), DIVIDE([Tonnage 2017] - [Tonnage 2012], [Tonnage 2012]))
+		formatString: 0.00%
+		lineageTag: d42c9fc7-9bed-4640-b083-fd007baba32d
+
+	measure 'Ton Miles 2012' = CALCULATE([Ton Miles], FactShipments[SURVEY_YEAR] = 2012)
+		formatString: #,##0
+		lineageTag: d2a44942-6b0b-436e-9487-ebe236cb7c3e
+
+	measure 'Ton Miles 2017' = CALCULATE([Ton Miles], FactShipments[SURVEY_YEAR] = 2017)
+		formatString: #,##0
+		lineageTag: 5df1f47b-fdb7-4e44-bab6-04da895f9223
+
+	measure 'Ton Miles Change %' = IF(ISBLANK([Ton Miles 2012]) || ISBLANK([Ton Miles 2017]), BLANK(), DIVIDE([Ton Miles 2017] - [Ton Miles 2012], [Ton Miles 2012]))
+		formatString: 0.00%
+		lineageTag: d2aeab17-83d9-4fa3-a816-2cdd7e96fb59
+
+	column SURVEY_YEAR
+		dataType: int64
+		lineageTag: 4c26ae8f-1a5d-46cd-a04a-d220f68a8128
+		summarizeBy: none
+		sourceColumn: SURVEY_YEAR
+
+	column SURVEY_YEAR_LABEL
+		dataType: string
+		lineageTag: 96ca8674-5bb5-41e8-b7ae-7ce8d3421d68
+		summarizeBy: none
+		sourceColumn: SURVEY_YEAR_LABEL
+
+	column ORIGIN_KEY
+		dataType: string
+		isHidden
+		lineageTag: c033c2f1-1d0c-49ad-90aa-4bfc66f90020
+		summarizeBy: none
+		sourceColumn: ORIGIN_KEY
+
+	column DESTINATION_KEY
+		dataType: string
+		isHidden
+		lineageTag: b637bbaf-5405-4637-a55a-793e771b3608
+		summarizeBy: none
+		sourceColumn: DESTINATION_KEY
+
+	column INDUSTRY_KEY
+		dataType: string
+		isHidden
+		lineageTag: de15b794-ea02-4e43-bcfc-c29d44c1fd61
+		summarizeBy: none
+		sourceColumn: INDUSTRY_KEY
+
+	column COMMODITY_KEY
+		dataType: string
+		isHidden
+		lineageTag: a4311fd8-7d8d-4dcf-a428-adfea254f717
+		summarizeBy: none
+		sourceColumn: COMMODITY_KEY
+
+	column MODE_KEY
+		dataType: string
+		isHidden
+		lineageTag: e103fefa-681c-423c-8ae1-2ccf48e58b6b
+		summarizeBy: none
+		sourceColumn: MODE_KEY
+
+	column FLOW_TYPE
+		dataType: string
+		lineageTag: 22dc77e7-a6c9-4964-998b-dbb358728ee8
+		summarizeBy: none
+		sourceColumn: FLOW_TYPE
+
+	column EXPORT_YN
+		dataType: string
+		lineageTag: 792cc1f3-8aab-45bc-8882-ba93dc4381aa
+		summarizeBy: none
+		sourceColumn: EXPORT_YN
+
+	column HAZMAT
+		dataType: string
+		lineageTag: d471d314-6cd4-45f7-b250-8bc9a11361a4
+		summarizeBy: none
+		sourceColumn: HAZMAT
+
+	column TEMP_CNTL_YN
+		dataType: string
+		lineageTag: b1360c10-15b0-4acc-a4f6-16fef8801e35
+		summarizeBy: none
+		sourceColumn: TEMP_CNTL_YN
+
+	column EXPORT_GROUP_HARMONIZED
+		dataType: string
+		lineageTag: ee5fb126-d2e1-46f4-9b9a-a5529dbe9957
+		summarizeBy: none
+		sourceColumn: EXPORT_GROUP_HARMONIZED
+
+	column HAZMAT_GROUP
+		dataType: string
+		lineageTag: 48131e31-f471-4401-8d63-72683bb863a6
+		summarizeBy: none
+		sourceColumn: HAZMAT_GROUP
+
+	column TEMP_CONTROL_GROUP
+		dataType: string
+		lineageTag: 169c1967-a909-4800-b5a9-437fbb20ce86
+		summarizeBy: none
+		sourceColumn: TEMP_CONTROL_GROUP
+
+	column EXPORT_DESTINATION
+		dataType: string
+		lineageTag: f886b757-9df9-4e0c-91ca-61d61f4f7ae4
+		summarizeBy: none
+		sourceColumn: EXPORT_DESTINATION
+
+	column EST_SHIPMENTS
+		dataType: double
+		lineageTag: 9e54620a-5665-4fcc-8eb9-9611a17aceb8
+		sourceColumn: EST_SHIPMENTS
+
+	column WEIGHTED_VALUE
+		dataType: double
+		lineageTag: 8fb8f66c-0c94-4cc3-84f8-22fd6a09978d
+		sourceColumn: WEIGHTED_VALUE
+
+	column WEIGHTED_TONS
+		dataType: double
+		lineageTag: a3a1807c-40ce-4658-a488-1cded0e98d13
+		sourceColumn: WEIGHTED_TONS
+
+	column WEIGHTED_TON_MILES
+		dataType: double
+		lineageTag: f5c97314-766b-4828-84e8-52684ccce31a
+		sourceColumn: WEIGHTED_TON_MILES
+
+	column WEIGHTED_ROUTED_MILES
+		dataType: double
+		lineageTag: f92af2e1-85a4-4fb9-b110-ca7ad9e3dfcf
+		sourceColumn: WEIGHTED_ROUTED_MILES
+
+	partition FactShipments = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(pDataFolder & "FactShipments.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    // SURVEY_YEAR: from the file; if the column is absent use pSurveyYearIfMissing (2012/2017), otherwise stop with a clear message
+				    YearIfMissing = Text.Trim(pSurveyYearIfMissing),
+				    WithYear =
+				        if Table.HasColumns(Promoted, "SURVEY_YEAR") then Promoted
+				        else if List.Contains({"2012", "2017"}, YearIfMissing) then Table.AddColumn(Promoted, "SURVEY_YEAR", each YearIfMissing, type text)
+				        else error Error.Record("FactShipments.csv has no SURVEY_YEAR column", "The dashboard compares 2012 with 2017, so every row needs SURVEY_YEAR. Add a SURVEY_YEAR column (2012 or 2017) to FactShipments.csv in Alteryx and refresh. If this file holds ONE survey year only, open Transform data > Manage parameters, set pSurveyYearIfMissing to 2012 or 2017, and refresh.", [ColumnsFound = Text.Combine(Table.ColumnNames(Promoted), ", ")]),
+				    Cols = Table.ColumnNames(WithYear),
+				    // base columns needed only for derived columns that are NOT already in the file
+				    NeedsIfMissing = {
+				            {"SURVEY_YEAR_LABEL", {}},
+				            {"ORIGIN_KEY", {"ORIG_CFS_AREA"}},
+				            {"DESTINATION_KEY", {"DEST_CFS_AREA"}},
+				            {"INDUSTRY_KEY", {"NAICS"}},
+				            {"COMMODITY_KEY", {"SCTG"}},
+				            {"MODE_KEY", {"MODE"}},
+				            {"FLOW_TYPE", {"ORIG_STATE", "DEST_STATE"}},
+				            {"EXPORT_GROUP_HARMONIZED", {"EXPORT_CNTRY"}},
+				            {"HAZMAT_GROUP", {"HAZMAT"}},
+				            {"TEMP_CONTROL_GROUP", {"TEMP_CNTL_YN"}},
+				            {"EXPORT_DESTINATION", {"EXPORT_CNTRY"}},
+				            {"EST_SHIPMENTS", {"WGT_FACTOR"}},
+				            {"WEIGHTED_VALUE", {"SHIPMT_VALUE", "WGT_FACTOR"}},
+				            {"WEIGHTED_TONS", {"SHIPMT_WGHT", "WGT_FACTOR"}},
+				            {"WEIGHTED_TON_MILES", {"SHIPMT_DIST_ROUTED"}},
+				            {"WEIGHTED_ROUTED_MILES", {"SHIPMT_DIST_ROUTED", "WGT_FACTOR"}}
+				        },
+				    Needed = List.Distinct({"EXPORT_YN", "HAZMAT", "TEMP_CNTL_YN"} & List.Combine(List.Transform(List.Select(NeedsIfMissing, each not List.Contains(Cols, _{0})), each _{1}))),
+				    MissingBase = List.Difference(Needed, Cols),
+				    Checked =
+				        if List.IsEmpty(MissingBase) then WithYear
+				        else error Error.Record("FactShipments.csv is missing columns the dashboard needs", "Missing: " & Text.Combine(MissingBase, ", ") & ". Use the standard CFS PUF column names and refresh.", [ColumnsFound = Text.Combine(Cols, ", ")]),
+				    TypeMap = {
+				            {"SURVEY_YEAR", Int64.Type},
+				            {"COMMODITY_KEY", type text},
+				            {"DESTINATION_KEY", type text},
+				            {"DEST_CFS_AREA", type text},
+				            {"DEST_STATE", type text},
+				            {"EXPORT_CNTRY", type text},
+				            {"EXPORT_DESTINATION", type text},
+				            {"EXPORT_GROUP_HARMONIZED", type text},
+				            {"EXPORT_YN", type text},
+				            {"FLOW_TYPE", type text},
+				            {"HAZMAT", type text},
+				            {"HAZMAT_GROUP", type text},
+				            {"INDUSTRY_KEY", type text},
+				            {"MODE", type text},
+				            {"MODE_KEY", type text},
+				            {"NAICS", type text},
+				            {"ORIGIN_KEY", type text},
+				            {"ORIG_CFS_AREA", type text},
+				            {"ORIG_STATE", type text},
+				            {"SCTG", type text},
+				            {"SURVEY_YEAR_LABEL", type text},
+				            {"TEMP_CNTL_YN", type text},
+				            {"TEMP_CONTROL_GROUP", type text},
+				            {"EST_SHIPMENTS", type number},
+				            {"SHIPMT_DIST_ROUTED", type number},
+				            {"SHIPMT_VALUE", type number},
+				            {"SHIPMT_WGHT", type number},
+				            {"WEIGHTED_ROUTED_MILES", type number},
+				            {"WEIGHTED_TONS", type number},
+				            {"WEIGHTED_TON_MILES", type number},
+				            {"WEIGHTED_VALUE", type number},
+				            {"WGT_FACTOR", type number}
+				        },
+				    Typed = Table.TransformColumnTypes(Checked, List.Select(TypeMap, each List.Contains(Cols, _{0})), "en-US"),
+				    // derived columns: kept as is when the file already has them, computed from the base columns when it does not
+				    AddIfMissing = (t as table, name as text, fn as function, typ as type) as table =>
+				        if Table.HasColumns(t, name) then t else Table.AddColumn(t, name, fn, typ),
+				    Txt = (v) => if v = null then "" else Text.Trim(Text.From(v)),
+				    Code = (v) => Text.Upper(Txt(v)),
+				    Pad2 = (v) => let s = Txt(v) in if Text.Length(s) = 1 then "0" & s else s,
+				    HazmatMap = [N = "Not hazardous", P = "Class 3 flammable liquid", H = "Other hazardous"],
+				    TempMap = [N = "Not temperature controlled", Y = "Temperature controlled"],
+				    ExportGroupMap = [C = "Canada", M = "Mexico"],
+				    ExportDest2012 = [C = "Canada", M = "Mexico", O = "Other foreign countries"],
+				    ExportDest2017 = [C = "Canada", M = "Mexico", E = "Europe & Africa", A = "Asia & Oceania", S = "Rest of the Americas", O = "Other foreign countries"],
+				    D01 = AddIfMissing(Typed, "SURVEY_YEAR_LABEL", each Text.From([SURVEY_YEAR]), type text),
+				    D02 = AddIfMissing(D01, "ORIGIN_KEY", each Text.From([SURVEY_YEAR]) & "-" & Txt([ORIG_CFS_AREA]), type text),
+				    D03 = AddIfMissing(D02, "DESTINATION_KEY", each Text.From([SURVEY_YEAR]) & "-" & Txt([DEST_CFS_AREA]), type text),
+				    D04 = AddIfMissing(D03, "INDUSTRY_KEY", each Text.From([SURVEY_YEAR]) & "-" & Txt([NAICS]), type text),
+				    D05 = AddIfMissing(D04, "COMMODITY_KEY", each Text.From([SURVEY_YEAR]) & "-" & Pad2([SCTG]), type text),
+				    D06 = AddIfMissing(D05, "MODE_KEY", each Text.From([SURVEY_YEAR]) & "-" & Pad2([MODE]), type text),
+				    D07 = AddIfMissing(D06, "FLOW_TYPE", each if Pad2([ORIG_STATE]) = Pad2([DEST_STATE]) then "Intrastate" else "Interstate", type text),
+				    D08 = AddIfMissing(D07, "EXPORT_GROUP_HARMONIZED", each let c = Code([EXPORT_CNTRY]) in if c = "" or c = "N" then "Not export" else Record.FieldOrDefault(ExportGroupMap, c, "Other international"), type text),
+				    D09 = AddIfMissing(D08, "HAZMAT_GROUP", each Record.FieldOrDefault(HazmatMap, Code([HAZMAT]), "Unknown"), type text),
+				    D10 = AddIfMissing(D09, "TEMP_CONTROL_GROUP", each Record.FieldOrDefault(TempMap, Code([TEMP_CNTL_YN]), "Unknown"), type text),
+				    D11 = AddIfMissing(D10, "EXPORT_DESTINATION", each let c = Code([EXPORT_CNTRY]) in if c = "" or c = "N" then "Not an export" else if [SURVEY_YEAR] = 2012 then Record.FieldOrDefault(ExportDest2012, c, "Code " & c & " (2012)") else Record.FieldOrDefault(ExportDest2017, c, "Code " & c & " (2017)"), type text),
+				    D12 = AddIfMissing(D11, "EST_SHIPMENTS", each [WGT_FACTOR], type number),
+				    D13 = AddIfMissing(D12, "WEIGHTED_VALUE", each [SHIPMT_VALUE] * [WGT_FACTOR], type number),
+				    D14 = AddIfMissing(D13, "WEIGHTED_TONS", each [SHIPMT_WGHT] / 2000 * [WGT_FACTOR], type number),
+				    D15 = AddIfMissing(D14, "WEIGHTED_TON_MILES", each [WEIGHTED_TONS] * [SHIPMT_DIST_ROUTED], type number),
+				    D16 = AddIfMissing(D15, "WEIGHTED_ROUTED_MILES", each [SHIPMT_DIST_ROUTED] * [WGT_FACTOR], type number),
+				    // lean model: only the columns the report and measures use (names come from the Dim tables via the keys)
+				    Lean = Table.SelectColumns(D16, {"SURVEY_YEAR", "SURVEY_YEAR_LABEL", "ORIGIN_KEY", "DESTINATION_KEY", "INDUSTRY_KEY", "COMMODITY_KEY", "MODE_KEY", "FLOW_TYPE", "EXPORT_YN", "HAZMAT", "TEMP_CNTL_YN", "EXPORT_GROUP_HARMONIZED", "HAZMAT_GROUP", "TEMP_CONTROL_GROUP", "EXPORT_DESTINATION", "EST_SHIPMENTS", "WEIGHTED_VALUE", "WEIGHTED_TONS", "WEIGHTED_TON_MILES", "WEIGHTED_ROUTED_MILES"})
+				in
+				    Lean
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,13 @@
+expression pDataFolder = "C:\Users\WY343EH\OneDrive - EY\Desktop\CFS_2012_2017_PowerBI\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: fb050d2b-bd6a-4228-8785-3bfbc8e9e60f
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+/// Only used when FactShipments.csv has NO SURVEY_YEAR column: set 2012 or 2017 for a single-year file; leave blank otherwise.
+expression pSurveyYearIfMissing = "" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+	lineageTag: 83bda59a-0e6f-4b28-a8ce-68a01fe8b68b
+
+	annotation PBI_ResultType = Text
+

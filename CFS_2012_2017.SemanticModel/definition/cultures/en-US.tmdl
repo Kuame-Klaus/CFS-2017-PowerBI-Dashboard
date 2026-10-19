@@ -1,0 +1,326 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "factshipments.survey_year_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactShipments",
+			          "ConceptualProperty": "SURVEY_YEAR_LABEL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Survey year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "factshipments.export_group_harmonized": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactShipments",
+			          "ConceptualProperty": "EXPORT_GROUP_HARMONIZED"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Export group": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "factshipments.industry_value_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactShipments",
+			          "ConceptualProperty": "Industry Value Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Share of year value": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "factshipments.export_destination": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactShipments",
+			          "ConceptualProperty": "EXPORT_DESTINATION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Export destination": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "factshipments.hazmat_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactShipments",
+			          "ConceptualProperty": "HAZMAT_GROUP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hazmat group": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "factshipments.temp_control_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactShipments",
+			          "ConceptualProperty": "TEMP_CONTROL_GROUP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Temperature control": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dimmode.mode_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimMode",
+			          "ConceptualProperty": "Mode_Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Mode": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dimcommodity.commodity_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimCommodity",
+			          "ConceptualProperty": "Commodity_Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Commodity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dimorigin.origin_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimOrigin",
+			          "ConceptualProperty": "Origin_State_Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Origin state": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dimorigin.origin_area_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimOrigin",
+			          "ConceptualProperty": "Origin_Area_Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Origin CFS area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dimorigin.is_placeholder_area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimOrigin",
+			          "ConceptualProperty": "Is_Placeholder_Area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Origin placeholder area (Y/N)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dimdestination.destination_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimDestination",
+			          "ConceptualProperty": "Destination_State_Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Destination state": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dimdestination.destination_area_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimDestination",
+			          "ConceptualProperty": "Destination_Area_Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Destination CFS area": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dimdestination.is_placeholder_area": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimDestination",
+			          "ConceptualProperty": "Is_Placeholder_Area"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Destination placeholder area (Y/N)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dimindustry.industry_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimIndustry",
+			          "ConceptualProperty": "Industry_Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Industry": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

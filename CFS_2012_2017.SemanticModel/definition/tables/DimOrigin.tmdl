@@ -1,0 +1,69 @@
+table DimOrigin
+	lineageTag: 08d3e4e0-765a-4549-9c35-0dc29a91729b
+
+	column SURVEY_YEAR
+		dataType: int64
+		lineageTag: b9683ebd-8796-409a-80cb-2e16124a0200
+		summarizeBy: none
+		sourceColumn: SURVEY_YEAR
+
+	column ORIG_CFS_AREA
+		dataType: string
+		lineageTag: 370c0d84-706b-4aec-b5a3-bbaabcf6f6a6
+		summarizeBy: none
+		sourceColumn: ORIG_CFS_AREA
+
+	column ORIGIN_KEY
+		dataType: string
+		lineageTag: 5d836ec6-8482-481a-9fb5-57f83c432ec2
+		summarizeBy: none
+		sourceColumn: ORIGIN_KEY
+
+	column ORIG_STATE
+		dataType: string
+		lineageTag: b03080be-f11c-48fc-a1ae-72fd119ac9d7
+		summarizeBy: none
+		sourceColumn: ORIG_STATE
+
+	column ORIG_MA
+		dataType: string
+		lineageTag: 6c8c2579-2111-4eb0-a604-94904655f237
+		summarizeBy: none
+		sourceColumn: ORIG_MA
+
+	column Origin_Area_Name
+		dataType: string
+		lineageTag: fc27bc08-4e44-462a-9b45-5e8eec75f507
+		summarizeBy: none
+		sourceColumn: CFS_Area_Description
+
+	column Is_Placeholder_Area
+		dataType: string
+		lineageTag: b8af0f13-8e76-42fa-b9fd-59708b9106ae
+		summarizeBy: none
+		sourceColumn: Is_Placeholder_Area
+
+	column MA_TYPE
+		dataType: string
+		lineageTag: c5513818-2f76-43fd-a9e2-a1b61d2230f9
+		summarizeBy: none
+		sourceColumn: MA_TYPE
+
+	column Origin_State_Name
+		dataType: string
+		lineageTag: 5f7fb742-811b-46e2-b3ed-5e3023b57990
+		summarizeBy: none
+		sourceColumn: STATE_NAME
+
+	partition DimOrigin = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(pDataFolder & "DimOrigin.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted,{{"SURVEY_YEAR", Int64.Type}, {"ORIG_CFS_AREA", type text}, {"ORIGIN_KEY", type text}, {"ORIG_STATE", type text}, {"ORIG_MA", type text}, {"CFS_Area_Description", type text}, {"Is_Placeholder_Area", type text}, {"MA_TYPE", type text}, {"STATE_NAME", type text}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

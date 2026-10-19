@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "tx0102ec8956637a99",
+  "position": {
+    "x": 12,
+    "y": 138,
+    "z": 10000,
+    "height": 32,
+    "width": 1252,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Shipment-level detail. Total records = microdata row count; weighted measures stay separate.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#8FB8DE"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

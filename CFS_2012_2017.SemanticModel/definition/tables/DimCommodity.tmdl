@@ -1,0 +1,45 @@
+table DimCommodity
+	lineageTag: 3e40bea7-8210-43cb-adfe-e4f35452bff2
+
+	column SURVEY_YEAR
+		dataType: int64
+		lineageTag: b23a917d-026a-461c-8328-568000bda3b8
+		summarizeBy: none
+		sourceColumn: SURVEY_YEAR
+
+	column SCTG
+		dataType: string
+		lineageTag: ef5637a5-b9c0-4889-a258-7c7b754a57e1
+		summarizeBy: none
+		sourceColumn: SCTG
+
+	column COMMODITY_KEY
+		dataType: string
+		lineageTag: f89dbce4-a772-4559-8e3f-1be018f58a53
+		summarizeBy: none
+		sourceColumn: COMMODITY_KEY
+
+	column Commodity_Description
+		dataType: string
+		lineageTag: 5623cdb8-ff59-4143-b38b-598d10a8ab5a
+		summarizeBy: none
+		sourceColumn: Commodity_Description
+
+	column SCTG_Group
+		dataType: string
+		lineageTag: 655f2264-6a1d-4c63-af53-56923e5c811a
+		summarizeBy: none
+		sourceColumn: SCTG_Group
+
+	partition DimCommodity = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(pDataFolder & "DimCommodity.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted,{{"SURVEY_YEAR", Int64.Type}, {"SCTG", type text}, {"COMMODITY_KEY", type text}, {"Commodity_Description", type text}, {"SCTG_Group", type text}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "tx0104c9e1074f5b3f",
+  "position": {
+    "x": 12.075471698113207,
+    "y": 60.377358490566039,
+    "z": 2000,
+    "height": 43.98921832884097,
+    "width": 1255.8490566037735,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Quality Control — every check below is calculated from the loaded FactShipments.csv. Placeholder CFS areas are surfaced, not hidden.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#8fb8de"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

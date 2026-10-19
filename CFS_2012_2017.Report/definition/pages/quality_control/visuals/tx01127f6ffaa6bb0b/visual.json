@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "tx01127f6ffaa6bb0b",
+  "position": {
+    "x": 12,
+    "y": 588,
+    "z": 14000,
+    "height": 160,
+    "width": 780,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Methodology: Weighted headline KPIs; Total records labelled separately. Annual default. Year-specific classifications retained. Export destination labels use Census EXPORT_CNTRY mapping (2012: C/M/O; 2017: C/M/E/A/S). Row counts, placeholder areas, null weights and lookup coverage are calculated from the loaded data (Validation status table).",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#8fb8de"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 7,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

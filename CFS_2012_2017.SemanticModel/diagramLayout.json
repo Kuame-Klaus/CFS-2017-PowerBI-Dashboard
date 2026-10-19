@@ -1,0 +1,107 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 200
+          },
+          "nodeIndex": "FactShipments",
+          "nodeLineageTag": null,
+          "size": {
+            "height": 300,
+            "width": 220
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 350,
+            "y": 0
+          },
+          "nodeIndex": "DimOrigin",
+          "size": {
+            "height": 200,
+            "width": 180
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 350,
+            "y": 220
+          },
+          "nodeIndex": "DimDestination",
+          "size": {
+            "height": 200,
+            "width": 180
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 350,
+            "y": 440
+          },
+          "nodeIndex": "DimCommodity",
+          "size": {
+            "height": 160,
+            "width": 180
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 600,
+            "y": 100
+          },
+          "nodeIndex": "DimIndustry",
+          "size": {
+            "height": 160,
+            "width": 180
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 600,
+            "y": 300
+          },
+          "nodeIndex": "DimMode",
+          "size": {
+            "height": 140,
+            "width": 180
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 600,
+            "y": 480
+          },
+          "nodeIndex": "DataQualityChecks",
+          "size": {
+            "height": 140,
+            "width": 180
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 90,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

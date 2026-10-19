@@ -1,0 +1,39 @@
+table DimIndustry
+	lineageTag: 722d15bc-4401-42bd-9f1d-fbf82eb6710d
+
+	column SURVEY_YEAR
+		dataType: int64
+		lineageTag: 6f4ae9ee-8af0-4310-b7fc-48fd75087d8e
+		summarizeBy: none
+		sourceColumn: SURVEY_YEAR
+
+	column NAICS
+		dataType: string
+		lineageTag: f91bfd66-538a-4411-86b4-40c257da3aa6
+		summarizeBy: none
+		sourceColumn: NAICS
+
+	column INDUSTRY_KEY
+		dataType: string
+		lineageTag: 19d0c1c4-ecb2-414f-bfa6-915696688b44
+		summarizeBy: none
+		sourceColumn: INDUSTRY_KEY
+
+	column Industry_Description
+		dataType: string
+		lineageTag: 1c2fa319-e857-4ee8-a80b-7528807f084a
+		summarizeBy: none
+		sourceColumn: Industry_Description
+
+	partition DimIndustry = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(pDataFolder & "DimIndustry.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted,{{"SURVEY_YEAR", Int64.Type}, {"NAICS", type text}, {"INDUSTRY_KEY", type text}, {"Industry_Description", type text}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

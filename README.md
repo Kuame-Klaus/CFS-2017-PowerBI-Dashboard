@@ -5,7 +5,7 @@ An 8 page Power BI dashboard built on the US Census Bureau Commodity Flow Survey
 **Author:** Eric Asiedu-Akrofi
 
 ## Download
-The full Power BI project (PBIP with semantic model, report and data) is attached to the [latest release](../../releases/latest) as `Latest.zip` (128 MB). Extract it first, then open `CFS_2012_2017.pbip` in Power BI Desktop.
+The full Power BI project (PBIP with semantic model, report and data) is in this repository. See Opening the project below.
 
 ## Pages
 1. Operations Overview
@@ -45,3 +45,11 @@ The full Power BI project (PBIP with semantic model, report and data) is attache
 
 ## Source
 US Census Bureau, Commodity Flow Survey 2017 public use file. Note: the 2012 data in this file is a small sample, so the comparison page shows data coverage, not growth.
+
+## Opening the project
+1. Download or clone this repository.
+2. The shipments data is split into parts because GitHub limits files to 100 MB. Rebuild `data/FactShipments.csv` before opening:
+   - Windows PowerShell, from the `data` folder:
+     `$f = Get-ChildItem FactShipments_parts\*.csv | Sort-Object Name; Get-Content $f[0] | Set-Content FactShipments.csv; $f | Select-Object -Skip 1 | ForEach-Object { Get-Content $_ | Select-Object -Skip 1 | Add-Content FactShipments.csv }`
+   - Mac or Linux: `cd data && (head -1 FactShipments_parts/FactShipments_part01.csv; for f in FactShipments_parts/*.csv; do tail -n +2 "$f"; done) > FactShipments.csv`
+3. Open `CFS_2012_2017.pbip` in Power BI Desktop and click Refresh.

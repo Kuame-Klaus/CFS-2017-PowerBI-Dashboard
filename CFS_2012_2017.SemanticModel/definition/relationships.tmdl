@@ -1,0 +1,20 @@
+relationship Rel_Fact_Origin
+	fromColumn: FactShipments.ORIGIN_KEY
+	toColumn: DimOrigin.ORIGIN_KEY
+
+relationship Rel_Fact_Destination
+	fromColumn: FactShipments.DESTINATION_KEY
+	toColumn: DimDestination.DESTINATION_KEY
+
+relationship Rel_Fact_Commodity
+	fromColumn: FactShipments.COMMODITY_KEY
+	toColumn: DimCommodity.COMMODITY_KEY
+
+relationship Rel_Fact_Industry
+	fromColumn: FactShipments.INDUSTRY_KEY
+	toColumn: DimIndustry.INDUSTRY_KEY
+
+relationship Rel_Fact_Mode
+	fromColumn: FactShipments.MODE_KEY
+	toColumn: DimMode.MODE_KEY
+

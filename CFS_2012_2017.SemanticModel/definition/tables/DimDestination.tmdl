@@ -1,0 +1,69 @@
+table DimDestination
+	lineageTag: 62dfda11-21ee-4b43-9b05-16e6cc0756d2
+
+	column SURVEY_YEAR
+		dataType: int64
+		lineageTag: 9367cc70-7f3e-473e-aa86-5cadb12e087a
+		summarizeBy: none
+		sourceColumn: SURVEY_YEAR
+
+	column DEST_CFS_AREA
+		dataType: string
+		lineageTag: 1aa0d245-34ff-41ea-9e8e-77428fc59b31
+		summarizeBy: none
+		sourceColumn: DEST_CFS_AREA
+
+	column DESTINATION_KEY
+		dataType: string
+		lineageTag: 2593a0a2-ed61-4f9b-95ba-b21ae727b42b
+		summarizeBy: none
+		sourceColumn: DESTINATION_KEY
+
+	column DEST_STATE
+		dataType: string
+		lineageTag: 35b764a6-dce0-4027-ab0b-427334b9216b
+		summarizeBy: none
+		sourceColumn: DEST_STATE
+
+	column DEST_MA
+		dataType: string
+		lineageTag: 5779ee0c-3543-408f-baed-810dd9b67feb
+		summarizeBy: none
+		sourceColumn: DEST_MA
+
+	column Destination_Area_Name
+		dataType: string
+		lineageTag: 4213a50f-12a6-45db-bb21-170c1ac9a9d5
+		summarizeBy: none
+		sourceColumn: CFS_Area_Description
+
+	column Is_Placeholder_Area
+		dataType: string
+		lineageTag: cb84bd8b-790e-4256-a000-a3a157711288
+		summarizeBy: none
+		sourceColumn: Is_Placeholder_Area
+
+	column MA_TYPE
+		dataType: string
+		lineageTag: 52273c2b-01e9-4f81-9ab4-7927fbe979cf
+		summarizeBy: none
+		sourceColumn: MA_TYPE
+
+	column Destination_State_Name
+		dataType: string
+		lineageTag: b5b81bca-d575-4dad-ac1e-490cc131c668
+		summarizeBy: none
+		sourceColumn: STATE_NAME
+
+	partition DimDestination = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(pDataFolder & "DimDestination.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted,{{"SURVEY_YEAR", Int64.Type}, {"DEST_CFS_AREA", type text}, {"DESTINATION_KEY", type text}, {"DEST_STATE", type text}, {"DEST_MA", type text}, {"CFS_Area_Description", type text}, {"Is_Placeholder_Area", type text}, {"MA_TYPE", type text}, {"STATE_NAME", type text}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

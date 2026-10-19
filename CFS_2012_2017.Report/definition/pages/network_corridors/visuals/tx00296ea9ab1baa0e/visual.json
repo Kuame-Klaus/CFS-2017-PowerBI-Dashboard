@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "tx00296ea9ab1baa0e",
+  "position": {
+    "x": 12,
+    "y": 138,
+    "z": 10000,
+    "height": 32,
+    "width": 1252,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Network uses state names (not FIPS). OD heatmap + state flow share ranking below.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#8fb8de"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

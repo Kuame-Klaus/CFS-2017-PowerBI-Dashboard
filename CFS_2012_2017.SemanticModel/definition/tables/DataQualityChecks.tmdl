@@ -1,0 +1,62 @@
+table DataQualityChecks
+	lineageTag: 91340c41-5ac8-429e-9308-c64af3daad00
+
+	column Control
+		dataType: string
+		lineageTag: 79075ed0-9467-41b3-acce-4c8448287d39
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Control]
+
+	column Result
+		dataType: string
+		lineageTag: b5292506-0d4f-4dfa-847f-372341102436
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Result]
+
+	column Status
+		dataType: string
+		lineageTag: 536b1703-54da-4899-93b5-c2e835d8dc1f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Status]
+
+	column Notes
+		dataType: string
+		lineageTag: 3f02c4ed-d0a6-4f83-9afe-e9b7f9bd1ddc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Notes]
+
+	partition DataQualityChecks = calculated
+		mode: import
+		source =
+				VAR n = COUNTROWS ( FactShipments ) + 0
+				VAR n12 = CALCULATE ( COUNTROWS ( FactShipments ), FactShipments[SURVEY_YEAR] = 2012 ) + 0
+				VAR n17 = CALCULATE ( COUNTROWS ( FactShipments ), FactShipments[SURVEY_YEAR] = 2017 ) + 0
+				VAR nOther = n - n12 - n17
+				VAR nullW = COUNTROWS ( FILTER ( FactShipments, ISBLANK ( FactShipments[EST_SHIPMENTS] ) ) ) + 0
+				VAR phO = COUNTROWS ( FILTER ( FactShipments, RELATED ( DimOrigin[Is_Placeholder_Area] ) = "Y" ) ) + 0
+				VAR phD = COUNTROWS ( FILTER ( FactShipments, RELATED ( DimDestination[Is_Placeholder_Area] ) = "Y" ) ) + 0
+				VAR unDimOrigin = COUNTROWS ( FILTER ( FactShipments, ISBLANK ( RELATED ( DimOrigin[ORIGIN_KEY] ) ) ) ) + 0
+				VAR unDimDestination = COUNTROWS ( FILTER ( FactShipments, ISBLANK ( RELATED ( DimDestination[DESTINATION_KEY] ) ) ) ) + 0
+				VAR unDimCommodity = COUNTROWS ( FILTER ( FactShipments, ISBLANK ( RELATED ( DimCommodity[COMMODITY_KEY] ) ) ) ) + 0
+				VAR unDimIndustry = COUNTROWS ( FILTER ( FactShipments, ISBLANK ( RELATED ( DimIndustry[INDUSTRY_KEY] ) ) ) ) + 0
+				VAR unDimMode = COUNTROWS ( FILTER ( FactShipments, ISBLANK ( RELATED ( DimMode[MODE_KEY] ) ) ) ) + 0
+				RETURN
+				UNION (
+				    ROW ( "Control", "Rows loaded", "Result", FORMAT ( n, "#,##0" ), "Status", IF ( n > 0, "Pass", "No data" ), "Notes", "Shipment records read from FactShipments.csv (survey records, not estimates)" ),
+				    ROW ( "Control", "Rows 2012", "Result", FORMAT ( n12, "#,##0" ), "Status", IF ( n12 > 0, "Pass", "Review" ), "Notes", "" ),
+				    ROW ( "Control", "Rows 2017", "Result", FORMAT ( n17, "#,##0" ), "Status", IF ( n17 > 0, "Pass", "Review" ), "Notes", "" ),
+				    ROW ( "Control", "Rows with another or blank survey year", "Result", FORMAT ( nOther, "#,##0" ), "Status", IF ( nOther = 0, "Pass", "Review" ), "Notes", "Only 2012 and 2017 are compared" ),
+				    ROW ( "Control", "Null weight factors", "Result", FORMAT ( nullW, "#,##0" ), "Status", IF ( nullW = 0, "Pass", "Review" ), "Notes", "Rows with a blank WGT_FACTOR (EST_SHIPMENTS)" ),
+				    ROW ( "Control", "Placeholder origin CFS area rows", "Result", FORMAT ( phO, "#,##0" ), "Status", IF ( phO > 0, "Review", "Pass" ), "Notes", "ORIG_MA 99999 (remainder of state) or 00000 (suppressed)" ),
+				    ROW ( "Control", "Placeholder destination CFS area rows", "Result", FORMAT ( phD, "#,##0" ), "Status", IF ( phD > 0, "Review", "Pass" ), "Notes", "DEST_MA 99999 (remainder of state) or 00000 (suppressed)" ),
+				    ROW ( "Control", "Lookup coverage origin", "Result", FORMAT ( DIVIDE ( n - unDimOrigin, n ), "0.00%" ), "Status", IF ( n = 0, "No data", IF ( unDimOrigin = 0, "Pass", "Review" ) ), "Notes", "Fact ORIGIN_KEY found in DimOrigin; unmatched rows: " & FORMAT ( unDimOrigin, "#,##0" ) ),
+				    ROW ( "Control", "Lookup coverage destination", "Result", FORMAT ( DIVIDE ( n - unDimDestination, n ), "0.00%" ), "Status", IF ( n = 0, "No data", IF ( unDimDestination = 0, "Pass", "Review" ) ), "Notes", "Fact DESTINATION_KEY found in DimDestination; unmatched rows: " & FORMAT ( unDimDestination, "#,##0" ) ),
+				    ROW ( "Control", "Lookup coverage commodity", "Result", FORMAT ( DIVIDE ( n - unDimCommodity, n ), "0.00%" ), "Status", IF ( n = 0, "No data", IF ( unDimCommodity = 0, "Pass", "Review" ) ), "Notes", "Fact COMMODITY_KEY found in DimCommodity; unmatched rows: " & FORMAT ( unDimCommodity, "#,##0" ) ),
+				    ROW ( "Control", "Lookup coverage industry", "Result", FORMAT ( DIVIDE ( n - unDimIndustry, n ), "0.00%" ), "Status", IF ( n = 0, "No data", IF ( unDimIndustry = 0, "Pass", "Review" ) ), "Notes", "Fact INDUSTRY_KEY found in DimIndustry; unmatched rows: " & FORMAT ( unDimIndustry, "#,##0" ) ),
+				    ROW ( "Control", "Lookup coverage mode", "Result", FORMAT ( DIVIDE ( n - unDimMode, n ), "0.00%" ), "Status", IF ( n = 0, "No data", IF ( unDimMode = 0, "Pass", "Review" ) ), "Notes", "Fact MODE_KEY found in DimMode; unmatched rows: " & FORMAT ( unDimMode, "#,##0" ) )
+				)
+

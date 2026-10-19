@@ -1,0 +1,202 @@
+{
+  "name": "CFS_Harbor_Navy-aa3a2f7909d9.json",
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.152.json",
+  "dataColors": [
+    "#1F5FA8",
+    "#1B998B",
+    "#8FB8DE",
+    "#F2A900",
+    "#C8553D",
+    "#0B2545"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#0B2545",
+  "tableAccent": "#0B2545",
+  "good": "#1B998B",
+  "neutral": "#F2A900",
+  "bad": "#C8553D",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Times New Roman",
+      "fontSize": 18,
+      "color": "#0B2545"
+    },
+    "title": {
+      "fontFace": "Comic Sans MS",
+      "fontSize": 12,
+      "color": "#0B2545"
+    },
+    "header": {
+      "fontFace": "Comic Sans MS",
+      "fontSize": 12,
+      "color": "#0B2545"
+    },
+    "label": {
+      "fontFace": "Times New Roman",
+      "fontSize": 10,
+      "color": "#0B2545"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#D5DCE6"
+              }
+            },
+            "radius": 10,
+            "width": 1
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#0B2545"
+              }
+            },
+            "fontSize": 12,
+            "fontFamily": "Comic Sans MS"
+          }
+        ],
+        "legend": [
+          {
+            "fontFamily": "Times New Roman",
+            "labelColor": {
+              "solid": {
+                "color": "#0B2545"
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "fontFamily": "Times New Roman",
+            "labelColor": {
+              "solid": {
+                "color": "#0B2545"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "fontFamily": "Times New Roman",
+            "labelColor": {
+              "solid": {
+                "color": "#0B2545"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#E9EEF4"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#E9EEF4"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "fontSize": 22,
+            "fontFamily": "Times New Roman",
+            "color": {
+              "solid": {
+                "color": "#0B2545"
+              }
+            }
+          }
+        ],
+        "categoryLabels": [
+          {
+            "show": false,
+            "fontSize": 10,
+            "fontFamily": "Times New Roman",
+            "color": {
+              "solid": {
+                "color": "#5B6B7F"
+              }
+            }
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontSize": 11,
+            "fontFamily": "Comic Sans MS",
+            "fontColor": {
+              "solid": {
+                "color": "#5B6B7F"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "header": [
+          {
+            "textSize": 9,
+            "fontFamily": "Comic Sans MS",
+            "fontColor": {
+              "solid": {
+                "color": "#0B2545"
+              }
+            }
+          }
+        ],
+        "items": [
+          {
+            "textSize": 10,
+            "fontFamily": "Times New Roman"
+          }
+        ]
+      }
+    }
+  },
+  "secondaryBackground": "#E9EEF4",
+  "backgroundLight": "#E9EEF4"
+}

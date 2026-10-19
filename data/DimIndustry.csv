@@ -1,0 +1,91 @@
+SURVEY_YEAR,NAICS,INDUSTRY_KEY,Industry_Description
+2012,212,2012-212,Mining (except oil and gas)
+2012,311,2012-311,Food manufacturing
+2012,312,2012-312,Beverage and tobacco product manufacturing
+2012,313,2012-313,Textile mills
+2012,314,2012-314,Textile product mills
+2012,315,2012-315,Apparel manufacturing
+2012,316,2012-316,Leather and allied product manufacturing
+2012,321,2012-321,Wood product manufacturing
+2012,322,2012-322,Paper manufacturing
+2012,323,2012-323,Printing and related support activities
+2012,324,2012-324,Petroleum and coal products manufacturing
+2012,325,2012-325,Chemical manufacturing
+2012,326,2012-326,Plastics and rubber products manufacturing
+2012,327,2012-327,Nonmetallic mineral product manufacturing
+2012,331,2012-331,Primary metal manufacturing
+2012,332,2012-332,Fabricated metal product manufacturing
+2012,333,2012-333,Machinery manufacturing
+2012,334,2012-334,Computer and electronic product manufacturing
+2012,335,2012-335,"Electrical equipment, appliance, and component manufacturing"
+2012,336,2012-336,Transportation equipment manufacturing
+2012,337,2012-337,Furniture and related product manufacturing
+2012,339,2012-339,Miscellaneous manufacturing
+2012,4231,2012-4231,Motor vehicle and parts merchant wholesalers
+2012,4232,2012-4232,Furniture and home furnishing merchant wholesalers
+2012,4233,2012-4233,Lumber and other construction materials merchant wholesalers
+2012,4234,2012-4234,Commercial equip. merchant wholesalers
+2012,4235,2012-4235,Metal and mineral (except petroleum) merchant wholesalers
+2012,4236,2012-4236,Electrical and electronic goods merchant wholesalers
+2012,4237,2012-4237,Hardware and plumbing merchant wholesalers
+2012,4238,2012-4238,"Machinery, equipment, and supplies merchant wholesalers"
+2012,4239,2012-4239,Miscellaneous durable goods merchant wholesalers
+2012,4241,2012-4241,Paper and paper product merchant wholesalers
+2012,4242,2012-4242,Drugs and druggists' sundries merchant wholesalers
+2012,4243,2012-4243,"Apparel, piece goods, and notions merchant wholesalers"
+2012,4244,2012-4244,Grocery and related product merchant wholesalers
+2012,4245,2012-4245,Farm product raw material merchant wholesalers
+2012,4246,2012-4246,Chemical and allied products merchant wholesalers
+2012,4247,2012-4247,Petroleum and petroleum products merchant wholesalers
+2012,4248,2012-4248,"Beer, wine, and distilled alcoholic beverage merchant wholesalers"
+2012,4249,2012-4249,Miscellaneous nondurable goods merchant wholesalers
+2012,4541,2012-4541,Electronic shopping and mail-order houses
+2012,45431,2012-45431,Direct selling establishments
+2012,4931,2012-4931,Warehousing and storage (includes 484)
+2012,5111,2012-5111,"Newspaper, periodical, book, and directory publishers"
+2012,551114,2012-551114,"Corporate, subsidiary, and regional managing offices"
+2017,212,2017-212,Mining (except oil and gas)
+2017,311,2017-311,Food manufacturing
+2017,312,2017-312,Beverage and tobacco product manufacturing
+2017,313,2017-313,Textile mills
+2017,314,2017-314,Textile product mills
+2017,315,2017-315,Apparel manufacturing
+2017,316,2017-316,Leather and allied product manufacturing
+2017,321,2017-321,Wood product manufacturing
+2017,322,2017-322,Paper manufacturing
+2017,323,2017-323,Printing and related support activities
+2017,324,2017-324,Petroleum and coal products manufacturing
+2017,325,2017-325,Chemical manufacturing
+2017,326,2017-326,Plastics and rubber products manufacturing
+2017,327,2017-327,Nonmetallic mineral product manufacturing
+2017,331,2017-331,Primary metal manufacturing
+2017,332,2017-332,Fabricated metal product manufacturing
+2017,333,2017-333,Machinery manufacturing
+2017,334,2017-334,Computer and electronic product manufacturing
+2017,335,2017-335,"Electrical equipment, appliance, and component manufacturing"
+2017,336,2017-336,Transportation equipment manufacturing
+2017,337,2017-337,Furniture and related product manufacturing
+2017,339,2017-339,Miscellaneous manufacturing
+2017,4231,2017-4231,Motor vehicle and parts merchant wholesalers
+2017,4232,2017-4232,Furniture and home furnishing merchant wholesalers
+2017,4233,2017-4233,Lumber and other construction materials merchant wholesalers
+2017,4234,2017-4234,Commercial equip. merchant wholesalers
+2017,4235,2017-4235,Metal and mineral (except petroleum) merchant wholesalers
+2017,4236,2017-4236,Electrical and electronic goods merchant wholesalers
+2017,4237,2017-4237,Hardware and plumbing merchant wholesalers
+2017,4238,2017-4238,"Machinery, equipment, and supplies merchant wholesalers"
+2017,4239,2017-4239,Miscellaneous durable goods merchant wholesalers
+2017,4241,2017-4241,Paper and paper product merchant wholesalers
+2017,4242,2017-4242,Drugs and druggists' sundries merchant wholesalers
+2017,4243,2017-4243,"Apparel, piece goods, and notions merchant wholesalers"
+2017,4244,2017-4244,Grocery and related product merchant wholesalers
+2017,4245,2017-4245,Farm product raw material merchant wholesalers
+2017,4246,2017-4246,Chemical and allied products merchant wholesalers
+2017,4247,2017-4247,Petroleum and petroleum products merchant wholesalers
+2017,4248,2017-4248,"Beer, wine, and distilled alcoholic beverage merchant wholesalers"
+2017,4249,2017-4249,Miscellaneous nondurable goods merchant wholesalers
+2017,4541,2017-4541,Electronic shopping and mail-order houses
+2017,45431,2017-45431,Fuel dealers
+2017,4931,2017-4931,"Warehousing and storage (includes 484, Truck transportation)"
+2017,5111,2017-5111,"Newspaper, periodical, book, and directory publishers (includes 51223, Music publishers)"
+2017,551114,2017-551114,"Corporate, subsidiary, and regional managing offices"

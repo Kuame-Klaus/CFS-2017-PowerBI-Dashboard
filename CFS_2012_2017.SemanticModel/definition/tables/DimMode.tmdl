@@ -1,0 +1,39 @@
+table DimMode
+	lineageTag: 4524b30c-ccb1-44c0-aa12-1e2094d0e4e4
+
+	column SURVEY_YEAR
+		dataType: int64
+		lineageTag: 73893ab2-fe0a-4988-82cb-0605f532c373
+		summarizeBy: none
+		sourceColumn: SURVEY_YEAR
+
+	column MODE
+		dataType: string
+		lineageTag: 1a37139f-6f78-4195-b395-cf063a4c8201
+		summarizeBy: none
+		sourceColumn: MODE
+
+	column MODE_KEY
+		dataType: string
+		lineageTag: 289f75c2-7cc5-49cc-a7a7-5be649e7b0fb
+		summarizeBy: none
+		sourceColumn: MODE_KEY
+
+	column Mode_Description
+		dataType: string
+		lineageTag: 094d330a-5735-400e-ad17-20125b3adfb9
+		summarizeBy: none
+		sourceColumn: Mode_Description
+
+	partition DimMode = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(pDataFolder & "DimMode.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted,{{"SURVEY_YEAR", Int64.Type}, {"MODE", type text}, {"MODE_KEY", type text}, {"Mode_Description", type text}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+
